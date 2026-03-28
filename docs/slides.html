@@ -126,7 +126,7 @@
     padding-left: 1.5rem;
     color: var(--muted);
   }
-  .prompt-structure .dim { color: #475569; }
+  .prompt-structure .dim { color: #94a3b8; }
 
   /* Link pill */
   .link-pill {
@@ -258,7 +258,7 @@
       <li><span class="highlight">Chatbot</span> &mdash; available 24/7 on Discord, gives personalized guidance in a conversation</li>
       <li><span class="highlight">Intake form</span> &mdash; structured data collection up front, no slow back-and-forth</li>
       <li><span class="highlight">Curated prompt</span> &mdash; 40+ vetted resources, research fellowships, career roadmaps</li>
-      <li><span class="highlight">Feedback pipeline</span> &mdash; currently eval-driven; can feed real user interactions back to improve the prompt over time</li>
+      <li><span class="highlight">Feedback pipeline</span> &mdash; real user interactions feed back to improve the prompt; starting with evals while we build up data</li>
     </ul>
   </div>
 
@@ -301,8 +301,8 @@
   <!-- SLIDE 6: Eval improvement -->
   <div class="slide" id="slide-6">
     <h3>Iteration</h3>
-    <h2>Eval-Driven Prompt Improvement</h2>
-    <p style="max-width: 700px; margin-bottom: 1.5rem;">Test the advisor against diverse personas <span class="dim" style="font-size: 1.1rem;">(ML engineer, SWE, policy grad, ops pro, ...)</span>, score responses automatically, identify failures, and iterate on the prompt.</p>
+    <h2>Continuous Improvement</h2>
+    <p style="max-width: 700px; margin-bottom: 1.5rem;">Starting with evals against diverse personas <span class="dim" style="font-size: 1.1rem;">(ML engineer, SWE, policy grad, ops pro, ...)</span> while we build up real user data. Over time, user interactions feed back into the loop.</p>
     <div class="eval-flow">
       <div class="eval-step">
         <div class="step-num">1</div>
@@ -316,7 +316,7 @@
       <div class="eval-arrow">&rarr;</div>
       <div class="eval-step">
         <div class="step-num">3</div>
-        <div class="step-label">Spot<br>failures</div>
+        <div class="step-label">Score<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--muted);">human + LLM</span></div>
       </div>
       <div class="eval-arrow">&rarr;</div>
       <div class="eval-step">
