@@ -171,7 +171,7 @@ def nps_scorer():
 
 
 @task
-def vy_advisor_eval():
+def advisor_eval():
     """Evaluate the AI Safety Career Advisor prompt via persona-based NPS scoring."""
     return Task(
         dataset=json_dataset(str(Path(__file__).parent / "personas.json")),
