@@ -222,15 +222,16 @@ def _format_conversation(state: TaskState) -> str:
 
 
 def _parse_score(response_text: str, default: int = 5) -> tuple[int, str]:
-    """Extract SCORE and FEEDBACK from a scorer response."""
+    """Extract SCORE and full explanation (criteria + feedback) from a scorer response."""
     score_match = re.search(r"SCORE:\s*(\d+)", response_text)
     score_val = int(score_match.group(1)) if score_match else default
 
-    feedback_match = re.search(r"FEEDBACK:\s*(.+)", response_text, re.DOTALL)
-    feedback = (
-        feedback_match.group(1).strip() if feedback_match else response_text
+    # Include everything from CRITERIA_RESULTS onward as the explanation
+    criteria_match = re.search(r"CRITERIA_RESULTS:\s*\n(.+)", response_text, re.DOTALL)
+    explanation = (
+        criteria_match.group(1).strip() if criteria_match else response_text
     )
-    return score_val, feedback
+    return score_val, explanation
 
 
 # ---------------------------------------------------------------------------
