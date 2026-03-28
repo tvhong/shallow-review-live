@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Safety Career Advisor — Intake Form</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #fff;
+    --border: #e0e0e0;
+    --text: #1a1a1a;
+    --text-muted: #666;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --accent-dark: #1d4ed8;
+    --chip-bg: #f3f4f6;
+    --chip-hover: #e5e7eb;
+    --chip-selected: #2563eb;
+    --chip-selected-text: #fff;
+    --section-gap: 2rem;
+    --radius: 8px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 1rem;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    padding: 2rem 0 1rem;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: var(--section-gap);
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+  .field:last-child { margin-bottom: 0; }
+
+  .field label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  .field .hint {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .chip {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--chip-bg);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.12s ease;
+  }
+  .chip:hover { background: var(--chip-hover); }
+  .chip.selected {
+    background: var(--chip-selected);
+    color: var(--chip-selected-text);
+    border-color: var(--chip-selected);
+  }
+
+  /* Scale */
+  .scale {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .scale-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--chip-bg);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .scale-btn:hover { background: var(--chip-hover); }
+  .scale-btn.selected {
+    background: var(--chip-selected);
+    color: var(--chip-selected-text);
+    border-color: var(--chip-selected);
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  /* Text inputs */
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: var(--surface);
+    transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+  textarea { resize: vertical; min-height: 3rem; }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-secondary {
+    background: var(--chip-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: var(--chip-hover); }
+
+  /* Output */
+  #output-section {
+    display: none;
+  }
+  #output-section.visible { display: block; }
+  #output-box {
+    width: 100%;
+    min-height: 200px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: #f8f9fa;
+    resize: vertical;
+  }
+  .copy-feedback {
+    color: #16a34a;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .copy-feedback.show { opacity: 1; }
+
+  /* Optional label */
+  .optional { color: var(--text-muted); font-weight: 400; }
+
+  @media (max-width: 600px) {
+    body { padding: 0.5rem; }
+    .section { padding: 1rem; }
+    header h1 { font-size: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>AI Safety Career Advisor</h1>
+  <p>Fill out this form, then copy the generated prompt into your chat with the advisor. The more you share, the better the advice.</p>
+</header>
+
+<!-- About You -->
+<div class="section">
+  <h2>About You</h2>
+
+  <div class="field">
+    <label>Current employment status</label>
+    <div class="chips" data-field="status" data-mode="single">
+      <span class="chip">Working full time</span>
+      <span class="chip">Working part time</span>
+      <span class="chip">Freelancing</span>
+      <span class="chip">Volunteering</span>
+      <span class="chip">Studying</span>
+      <span class="chip">Unemployed / Seeking employment</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Years of work experience</label>
+    <div class="chips" data-field="experience" data-mode="single">
+      <span class="chip">0</span>
+      <span class="chip">1-2</span>
+      <span class="chip">3-5</span>
+      <span class="chip">6-10</span>
+      <span class="chip">10+</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Highest education level</label>
+    <div class="chips" data-field="education" data-mode="single">
+      <span class="chip">High School</span>
+      <span class="chip">Some College</span>
+      <span class="chip">Associate Degree</span>
+      <span class="chip">Bachelor's</span>
+      <span class="chip">Master's</span>
+      <span class="chip">Doctoral (PhD/MD)</span>
+      <span class="chip">Professional (JD/MBA)</span>
+      <span class="chip">Other</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Field of study / expertise</label>
+    <input type="text" id="field-of-study" placeholder="e.g. Molecular biology, Computer science, Political science">
+  </div>
+
+  <div class="field">
+    <label>Country</label>
+    <input type="text" id="country" placeholder="e.g. UK, United States, Germany">
+  </div>
+
+  <div class="field">
+    <label>Languages (B2+ proficiency)</label>
+    <input type="text" id="languages" placeholder="e.g. English, Mandarin, Spanish">
+  </div>
+</div>
+
+<!-- Skills & Experience -->
+<div class="section">
+  <h2>Skills &amp; Experience</h2>
+
+  <div class="field">
+    <label>Role types you have 1+ year experience in</label>
+    <div class="hint">Select all that apply</div>
+    <div class="chips" data-field="experienced-roles" data-mode="multi">
+      <span class="chip">Accounting</span>
+      <span class="chip">Administrative</span>
+      <span class="chip">Biotechnology</span>
+      <span class="chip">Business Development</span>
+      <span class="chip">Communications</span>
+      <span class="chip">Community Building</span>
+      <span class="chip">Consulting</span>
+      <span class="chip">Data Science</span>
+      <span class="chip">Design</span>
+      <span class="chip">Education</span>
+      <span class="chip">Engineering</span>
+      <span class="chip">Finance</span>
+      <span class="chip">Forecasting</span>
+      <span class="chip">Fundraising</span>
+      <span class="chip">Government</span>
+      <span class="chip">Grantmaking</span>
+      <span class="chip">HR &amp; People Ops</span>
+      <span class="chip">IT</span>
+      <span class="chip">Leadership &amp; Management</span>
+      <span class="chip">Legal</span>
+      <span class="chip">Marketing</span>
+      <span class="chip">Medical &amp; Health</span>
+      <span class="chip">Operations</span>
+      <span class="chip">Policy</span>
+      <span class="chip">Product Management</span>
+      <span class="chip">Program Management</span>
+      <span class="chip">Project Management</span>
+      <span class="chip">Research</span>
+      <span class="chip">R&amp;D</span>
+      <span class="chip">Sales</span>
+      <span class="chip">Science</span>
+      <span class="chip">Software Development</span>
+      <span class="chip">Strategy</span>
+      <span class="chip">Other</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Role types you're interested in</label>
+    <div class="hint">Select all that apply</div>
+    <div class="chips" data-field="interested-roles" data-mode="multi">
+      <span class="chip">Accounting</span>
+      <span class="chip">Administrative</span>
+      <span class="chip">Biotechnology</span>
+      <span class="chip">Business Development</span>
+      <span class="chip">Communications</span>
+      <span class="chip">Community Building</span>
+      <span class="chip">Consulting</span>
+      <span class="chip">Data Science</span>
+      <span class="chip">Design</span>
+      <span class="chip">Education</span>
+      <span class="chip">Engineering</span>
+      <span class="chip">Finance</span>
+      <span class="chip">Forecasting</span>
+      <span class="chip">Fundraising</span>
+      <span class="chip">Government</span>
+      <span class="chip">Grantmaking</span>
+      <span class="chip">HR &amp; People Ops</span>
+      <span class="chip">IT</span>
+      <span class="chip">Leadership &amp; Management</span>
+      <span class="chip">Legal</span>
+      <span class="chip">Marketing</span>
+      <span class="chip">Medical &amp; Health</span>
+      <span class="chip">Operations</span>
+      <span class="chip">Policy</span>
+      <span class="chip">Product Management</span>
+      <span class="chip">Program Management</span>
+      <span class="chip">Project Management</span>
+      <span class="chip">Research</span>
+      <span class="chip">R&amp;D</span>
+      <span class="chip">Sales</span>
+      <span class="chip">Science</span>
+      <span class="chip">Software Development</span>
+      <span class="chip">Strategy</span>
+      <span class="chip">Other</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Level of role you're looking for</label>
+    <div class="chips" data-field="level" data-mode="multi">
+      <span class="chip">Junior</span>
+      <span class="chip">Senior</span>
+      <span class="chip">Manager</span>
+      <span class="chip">Director</span>
+      <span class="chip">C-Suite</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Largest budget you've managed <span class="optional">(optional)</span></label>
+    <input type="text" id="budget" placeholder="e.g. $500K, $2M">
+  </div>
+
+  <div class="field">
+    <label>Most staff you've managed <span class="optional">(optional)</span></label>
+    <input type="text" id="staff" placeholder="e.g. 5, 20, 100+">
+  </div>
+</div>
+
+<!-- AI Safety & Cause Areas -->
+<div class="section">
+  <h2>AI Safety &amp; Cause Areas</h2>
+
+  <div class="field">
+    <label>Cause areas of interest</label>
+    <div class="hint">Select all that apply</div>
+    <div class="chips" data-field="causes" data-mode="multi">
+      <span class="chip">AI Safety (General)</span>
+      <span class="chip">AI Safety (Governance &amp; Policy)</span>
+      <span class="chip">AI Safety (Technical)</span>
+      <span class="chip">Biosecurity &amp; Pandemic Preparedness</span>
+      <span class="chip">Cybersecurity</span>
+      <span class="chip">Existential Risk Reduction</span>
+      <span class="chip">Global Priorities Research</span>
+      <span class="chip">Nuclear Weapons</span>
+      <span class="chip">Other</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Familiarity with AI safety</label>
+    <div class="chips" data-field="familiarity" data-mode="single">
+      <span class="chip">Completely new</span>
+      <span class="chip">Some exposure (read a few articles)</span>
+      <span class="chip">Moderate (taken a course or read extensively)</span>
+      <span class="chip">Deep (work in or adjacent to the field)</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>What drew you to AI safety? <span class="optional">(optional)</span></label>
+    <textarea id="motivation" rows="2" placeholder="e.g. Concerned about biorisk + AI intersection, read Superintelligence..."></textarea>
+  </div>
+</div>
+
+<!-- Job Preferences -->
+<div class="section">
+  <h2>Job Preferences</h2>
+
+  <div class="field">
+    <label>Interest in moving into a high-impact AI safety job</label>
+    <div class="scale" data-field="job-interest" data-mode="single">
+      <span class="scale-btn" data-value="1">1</span>
+      <span class="scale-btn" data-value="2">2</span>
+      <span class="scale-btn" data-value="3">3</span>
+      <span class="scale-btn" data-value="4">4</span>
+      <span class="scale-btn" data-value="5">5</span>
+    </div>
+    <div class="scale-labels">
+      <span>Not interested in changing</span>
+      <span>Actively trying</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Interest in founding / co-founding a project <span class="optional">(optional)</span></label>
+    <div class="scale" data-field="founding-interest" data-mode="single">
+      <span class="scale-btn" data-value="1">1</span>
+      <span class="scale-btn" data-value="2">2</span>
+      <span class="scale-btn" data-value="3">3</span>
+      <span class="scale-btn" data-value="4">4</span>
+      <span class="scale-btn" data-value="5">5</span>
+    </div>
+    <div class="scale-labels">
+      <span>Not interested</span>
+      <span>Very interested</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Work location preference</label>
+    <div class="chips" data-field="location" data-mode="multi">
+      <span class="chip">Fully remote</span>
+      <span class="chip">Hybrid</span>
+      <span class="chip">In-person</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Position type</label>
+    <div class="chips" data-field="position-type" data-mode="multi">
+      <span class="chip">Full-time</span>
+      <span class="chip">Part-time</span>
+      <span class="chip">Freelance</span>
+      <span class="chip">Internship</span>
+      <span class="chip">Volunteering</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Willing / able to relocate</label>
+    <div class="chips" data-field="relocate" data-mode="single">
+      <span class="chip">Yes</span>
+      <span class="chip">Maybe</span>
+      <span class="chip">No</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Available from <span class="optional">(optional)</span></label>
+    <input type="text" id="available-from" placeholder="e.g. Immediately, 2026-06, September 2026">
+  </div>
+</div>
+
+<!-- Learning Preferences -->
+<div class="section">
+  <h2>Learning Preferences</h2>
+
+  <div class="field">
+    <label>How do you prefer to learn?</label>
+    <div class="hint">Select all that apply</div>
+    <div class="chips" data-field="learning" data-mode="multi">
+      <span class="chip">Self-paced reading and courses</span>
+      <span class="chip">Structured cohort-based programs</span>
+      <span class="chip">Hands-on projects</span>
+      <span class="chip">Mentorship / 1-on-1 guidance</span>
+    </div>
+  </div>
+</div>
+
+<!-- Anything Else -->
+<div class="section">
+  <h2>Anything Else <span class="optional">(optional)</span></h2>
+  <div class="field">
+    <label>Constraints, context, or questions you'd like the advisor to know about</label>
+    <textarea id="additional" rows="3" placeholder="e.g. I can't do full-time programs, I have deep biosecurity expertise and some R coding skills..."></textarea>
+  </div>
+</div>
+
+<!-- Generate -->
+<div class="section" style="text-align: center; border: none; background: none; padding: 0;">
+  <div class="actions" style="justify-content: center;">
+    <button class="btn btn-primary" id="generate-btn">Generate Prompt</button>
+  </div>
+</div>
+
+<!-- Output -->
+<div class="section" id="output-section">
+  <h2>Your Advisor Prompt</h2>
+  <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">Copy this and paste it into your chat with the AI Safety Career Advisor.</p>
+  <textarea id="output-box" readonly></textarea>
+  <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem;">
+    <button class="btn btn-secondary" id="copy-btn">Copy to clipboard</button>
+    <span class="copy-feedback" id="copy-feedback">Copied!</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  // --- Chip & scale selection logic ---
+  document.querySelectorAll('.chips').forEach(function (container) {
+    var mode = container.dataset.mode; // "single" or "multi"
+    container.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      if (mode === 'single') {
+        container.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('selected'); });
+        chip.classList.add('selected');
+      } else {
+        chip.classList.toggle('selected');
+      }
+    });
+  });
+
+  document.querySelectorAll('.scale').forEach(function (container) {
+    container.addEventListener('click', function (e) {
+      var btn = e.target.closest('.scale-btn');
+      if (!btn) return;
+      container.querySelectorAll('.scale-btn').forEach(function (b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+    });
+  });
+
+  // --- Helpers ---
+  function getChipValues(field) {
+    var container = document.querySelector('[data-field="' + field + '"]');
+    if (!container) return [];
+    var selected = container.querySelectorAll('.selected');
+    return Array.prototype.map.call(selected, function (c) { return c.textContent.trim(); });
+  }
+
+  function getScaleValue(field) {
+    var container = document.querySelector('[data-field="' + field + '"]');
+    if (!container) return '';
+    var selected = container.querySelector('.selected');
+    return selected ? selected.dataset.value : '';
+  }
+
+  function getTextValue(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  // --- Generate output ---
+  document.getElementById('generate-btn').addEventListener('click', function () {
+    var lines = [];
+    lines.push('=== AI Safety Career Advisor \u2014 Intake ===');
+
+    // About You
+    var status = getChipValues('status');
+    if (status.length) lines.push('Status: ' + status[0]);
+
+    var exp = getChipValues('experience');
+    if (exp.length) lines.push('Experience: ' + exp[0] + ' years');
+
+    var edu = getChipValues('education');
+    if (edu.length) lines.push('Education: ' + edu[0]);
+
+    var fieldOfStudy = getTextValue('field-of-study');
+    if (fieldOfStudy) lines.push('Field: ' + fieldOfStudy);
+
+    var country = getTextValue('country');
+    if (country) lines.push('Country: ' + country);
+
+    var languages = getTextValue('languages');
+    if (languages) lines.push('Languages: ' + languages);
+
+    // Skills & Experience
+    var expRoles = getChipValues('experienced-roles');
+    if (expRoles.length) {
+      lines.push('');
+      lines.push('Experienced roles: ' + expRoles.join(', '));
+    }
+
+    var intRoles = getChipValues('interested-roles');
+    if (intRoles.length) lines.push('Interested roles: ' + intRoles.join(', '));
+
+    var level = getChipValues('level');
+    if (level.length) lines.push('Level sought: ' + level.join(', '));
+
+    var budget = getTextValue('budget');
+    if (budget) lines.push('Largest budget managed: ' + budget);
+
+    var staff = getTextValue('staff');
+    if (staff) lines.push('Most staff managed: ' + staff);
+
+    // AI Safety & Cause Areas
+    var causes = getChipValues('causes');
+    if (causes.length) {
+      lines.push('');
+      lines.push('Cause areas: ' + causes.join(', '));
+    }
+
+    var familiarity = getChipValues('familiarity');
+    if (familiarity.length) lines.push('AI safety familiarity: ' + familiarity[0]);
+
+    var motivation = getTextValue('motivation');
+    if (motivation) lines.push('Motivation: ' + motivation);
+
+    // Job Preferences
+    var jobInterest = getScaleValue('job-interest');
+    if (jobInterest) {
+      lines.push('');
+      lines.push('Job interest: ' + jobInterest + '/5');
+    }
+
+    var foundingInterest = getScaleValue('founding-interest');
+    if (foundingInterest) lines.push('Founding interest: ' + foundingInterest + '/5');
+
+    var location = getChipValues('location');
+    if (location.length) lines.push('Location: ' + location.join(', '));
+
+    var posType = getChipValues('position-type');
+    if (posType.length) lines.push('Position type: ' + posType.join(', '));
+
+    var relocate = getChipValues('relocate');
+    if (relocate.length) lines.push('Relocate: ' + relocate[0]);
+
+    var availableFrom = getTextValue('available-from');
+    if (availableFrom) lines.push('Available: ' + availableFrom);
+
+    // Learning
+    var learning = getChipValues('learning');
+    if (learning.length) {
+      lines.push('');
+      lines.push('Learning preference: ' + learning.join(', '));
+    }
+
+    // Additional
+    var additional = getTextValue('additional');
+    if (additional) {
+      lines.push('');
+      lines.push('Additional context: ' + additional);
+    }
+
+    var output = lines.join('\n');
+    var outputBox = document.getElementById('output-box');
+    outputBox.value = output;
+
+    // Auto-resize
+    outputBox.style.height = 'auto';
+    outputBox.style.height = outputBox.scrollHeight + 'px';
+
+    var section = document.getElementById('output-section');
+    section.classList.add('visible');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // --- Copy ---
+  document.getElementById('copy-btn').addEventListener('click', function () {
+    var outputBox = document.getElementById('output-box');
+    navigator.clipboard.writeText(outputBox.value).then(function () {
+      var fb = document.getElementById('copy-feedback');
+      fb.classList.add('show');
+      setTimeout(function () { fb.classList.remove('show'); }, 2000);
+    });
+  });
+})();
+</script>
+</body>
+</html>
