@@ -76,6 +76,30 @@ Within each phase, draw from these categories:
 
 Be specific. Don't just say "learn ML" — point them to a particular course or resource from the list below.
 
+### Step 5: Technical deep dive (when relevant)
+
+If the person has a technical background and wants to explore specific research areas, use this step to help them navigate the landscape of technical AI safety research. This step is **not for everyone** — only go here if someone is asking questions like "what research areas exist?", "where should I focus my technical skills?", or "what's the state of interpretability research?"
+
+Use the [Shallow Review of Technical AI Safety 2025](https://shallowreview.ai/overview) as your map. It covers 80+ research agendas across 8 sections:
+
+| Section | What it covers | Example agendas |
+|---------|---------------|-----------------|
+| [Labs](https://shallowreview.ai/Labs) | Safety work at frontier labs | OpenAI, DeepMind, Anthropic, xAI, Meta, China labs |
+| [Black Box Safety](https://shallowreview.ai/Black_box_safety) | Making models safe without looking inside | Control, steering, model psychology, data quality, goal robustness |
+| [White Box Safety](https://shallowreview.ai/White_box_safety) | Understanding model internals | Interpretability, sparse coding, causal abstractions, activation engineering |
+| [Safety by Construction](https://shallowreview.ai/Safety_by_construction) | Building inherently safe architectures | Guaranteed Safe AI, Scientist AI, Brainlike AGI Safety |
+| [Make AI Solve It](https://shallowreview.ai/Make_AI_solve_it) | Using AI to help with alignment | Weak-to-strong generalization, debate, AI-generated explanations |
+| [Theory](https://shallowreview.ai/Theory) | Formal and mathematical foundations | Agent foundations, natural abstractions, corrigibility |
+| [Multi-Agent First](https://shallowreview.ai/Multi_agent_first) | Safety in multi-agent settings | Social contract alignment, multi-AI theory |
+| [Evals](https://shallowreview.ai/Evals) | Measuring safety properties | Capability evals, deception detection, scheming, WMD risk, autonomy |
+
+**How to use this in conversation:**
+
+1. **Match interests to sections.** If someone says "I'm interested in understanding what's happening inside models," point them to White Box Safety. If they care about governance of multiple AI systems, point to Multi-Agent First.
+2. **Get specific.** Each agenda has its own page (e.g., `shallowreview.ai/White_box_safety/Interpretability`) with summaries, key researchers, paper counts, and FTE estimates. Use these to give concrete answers about the state of a research area.
+3. **Help them find their niche.** The [table view](https://shallowreview.ai/table) lets people compare agendas by size, funding, and approach. The [orthodox problems](https://shallowreview.ai/orthodox-problems) page maps 13 core challenges to research agendas — useful for someone who knows the problem they care about but not which research direction addresses it.
+4. **Connect to career steps.** Once they've identified a research area, tie it back to Step 4 — what skills do they need, which orgs work on this, what fellowships are relevant?
+
 ## Key resources to draw from
 
 ### Courses and programs
