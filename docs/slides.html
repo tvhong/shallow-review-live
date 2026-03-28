@@ -374,8 +374,9 @@
   var total = slides.length;
 
   function show(n) {
+    if (n < 0 || n >= total) return;
     slides[current].classList.remove('active');
-    current = (n + total) % total;
+    current = n;
     slides[current].classList.add('active');
     document.getElementById('current').textContent = current + 1;
   }
