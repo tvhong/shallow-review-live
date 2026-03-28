@@ -1,0 +1,109 @@
+{
+  "description": "Reputable sources for the AI Safety Career Advisor. Used as (1) the boundary for what the advisor should recommend and (2) the search scope for the freshness scorer.",
+  "domains": [
+    {
+      "domain": "80000hours.org",
+      "name": "80,000 Hours",
+      "description": "Career reviews, problem profiles, AI safety guides, skill pages, and job board",
+      "key_urls": [
+        "https://80000hours.org/ai/",
+        "https://80000hours.org/career-reviews/",
+        "https://80000hours.org/problem-profiles/artificial-intelligence/",
+        "https://80000hours.org/2025/06/technical-ai-safety-upskilling-resources/",
+        "https://80000hours.org/articles/ai-safety-syllabus/",
+        "https://80000hours.org/articles/ai-policy-guide/",
+        "https://80000hours.org/articles/ml-engineering-career-transition-guide/"
+      ]
+    },
+    {
+      "domain": "aisafety.com",
+      "name": "AISafety.com",
+      "description": "Field map, courses directory, job board, events, advisors, communities, funding, projects",
+      "key_urls": [
+        "https://www.aisafety.com/map",
+        "https://aisafety.com/courses",
+        "https://www.aisafety.com/events-and-training",
+        "https://www.aisafety.com/advisors",
+        "https://www.aisafety.com/jobs",
+        "https://www.aisafety.com/communities",
+        "https://www.aisafety.com/funding",
+        "https://www.aisafety.com/projects"
+      ]
+    },
+    {
+      "domain": "shallowreview.ai",
+      "name": "Shallow Review of Technical AI Safety 2025",
+      "description": "Taxonomy of 80+ research agendas, 800+ papers, with researcher and funder data",
+      "key_urls": [
+        "https://shallowreview.ai/overview",
+        "https://shallowreview.ai/table",
+        "https://shallowreview.ai/orthodox-problems",
+        "https://shallowreview.ai/similarity"
+      ]
+    },
+    {
+      "domain": "course.aisafetyfundamentals.com",
+      "name": "AI Safety Fundamentals",
+      "description": "Free cohort-based alignment and governance courses from BlueDot Impact"
+    },
+    {
+      "domain": "bluedot.org",
+      "name": "BlueDot Impact",
+      "description": "AI safety courses with career support"
+    },
+    {
+      "domain": "arena.education",
+      "name": "ARENA",
+      "description": "Technical AI safety bootcamps and self-study curriculum",
+      "key_urls": [
+        "https://www.arena.education",
+        "https://www.arena.education/curriculum"
+      ]
+    },
+    {
+      "domain": "alignmentforum.org",
+      "name": "AI Alignment Forum",
+      "description": "Technical alignment research discussion and curated sequences"
+    },
+    {
+      "domain": "lesswrong.com",
+      "name": "LessWrong",
+      "description": "Rationality community with significant AI safety discussion"
+    },
+    {
+      "domain": "forum.effectivealtruism.org",
+      "name": "EA Forum",
+      "description": "Effective altruism community, active on AI safety topics"
+    },
+    {
+      "domain": "aisafetysupport.org",
+      "name": "AI Safety Support",
+      "description": "Resource collection and career support links"
+    },
+    {
+      "domain": "aisafety.dance",
+      "name": "AI Safety for Fleshy Humans",
+      "description": "Interactive guide breaking down the AI safety problem"
+    },
+    {
+      "domain": "aisafetybook.com",
+      "name": "AI Safety Textbook (AISES)",
+      "description": "Comprehensive AI safety curriculum"
+    },
+    {
+      "domain": "ai-safety-atlas.com",
+      "name": "AI Safety Atlas",
+      "description": "Visual guide to the field"
+    },
+    {
+      "domain": "course.mlsafety.org",
+      "name": "Intro to ML Safety",
+      "description": "Self-paced ML safety course"
+    },
+    {
+      "domain": "cooperativeai.com",
+      "name": "Cooperative AI",
+      "description": "Multi-agent safety curriculum"
+    }
+  ]
+}
