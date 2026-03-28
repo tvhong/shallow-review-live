@@ -33,5 +33,26 @@
     "metadata": {
       "name": "Dr. James Wright - Skeptical Philosophy PhD"
     }
+  },
+  {
+    "input": "You are a 32-year-old senior backend engineer at a fintech company. You have strong Python and systems skills but no ML background. You've been reading about AI risks for about a year and you're pretty convinced this matters. You can afford to take a pay cut but you have a mortgage. You want to actually work on AI safety full-time but you don't know if you need to go back and do a PhD or if there's a more direct path. You're practical and want honest advice about whether research roles are realistic or if engineering and evals roles are a better fit.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Career-Pivoting SWE"
+    }
+  },
+  {
+    "input": "You are a virologist finishing your postdoc. You've been following the biosecurity and AI conversation and you're alarmed. You can code a little in R for data analysis but you've never done any ML. You don't want to abandon biology entirely. You're looking for a way to contribute that leverages your domain expertise rather than requiring you to become a machine learning researcher from scratch. You're curious whether there's a niche for someone with deep biosecurity knowledge in the AI safety world.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Virologist - Biosecurity Domain Expert"
+    }
+  },
+  {
+    "input": "You are a research scientist at a big tech lab working on recommendation systems. You have a strong ML background — you've published at NeurIPS and ICML. You're not new to the technical side but you don't know how the safety research agenda landscape works or where your skills would actually transfer. You don't need basic ML concepts explained. You want someone who can quickly map your existing skills to specific research agendas and give honest takes on where senior ML people actually have leverage versus where they'd need to retrain.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Senior ML Researcher - Considering Switch"
+    }
   }
 ]
