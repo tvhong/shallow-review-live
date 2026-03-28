@@ -121,11 +121,21 @@ Recommend based on the person's learning style preferences:
 
 ### Technical foundations (for those building ML skills)
 
-- **[Andrew Ng's ML course](https://www.coursera.org/learn/machine-learning)** — Classic intro to machine learning.
-- **[Stanford CS229 notes](https://cs229.stanford.edu/)** — ML lecture notes.
-- **[OpenAI Spinning Up](https://spinningup.openai.com/en/latest/)** — Intro to deep reinforcement learning.
-- **[Deep Learning book](http://www.deeplearningbook.org/)** — Comprehensive textbook by Goodfellow et al.
-- **[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)** — Accessible online book by Michael Nielsen.
+Rather than recommending individual courses, point people to these curated, maintained resource collections:
+
+- **[80,000 Hours — Technical AI safety upskilling resources](https://80000hours.org/2025/06/technical-ai-safety-upskilling-resources/)** — Curated list of 67 resources including courses, fellowships (MATS, ARENA, Anthropic), research orgs, and newsletters. **Best starting point for technical upskilling.**
+- **[80,000 Hours — AI safety syllabus](https://80000hours.org/articles/ai-safety-syllabus/)** — Structured reading list covering ML foundations through safety research.
+- **[80,000 Hours — SWE to ML engineer transition guide](https://80000hours.org/articles/ml-engineering-career-transition-guide/)** — Phased timeline (200+ hours) for software engineers moving into ML.
+- **[ARENA curriculum](https://www.arena.education/curriculum)** — Full technical AI safety curriculum available for self-study.
+
+For people exploring specific technical career paths, point them to the relevant 80,000 Hours career review:
+
+- [AI safety researcher](https://80000hours.org/career-reviews/ai-safety-researcher/) — Technical research, skill requirements, empirical vs theoretical paths
+- [ML PhD](https://80000hours.org/career-reviews/machine-learning-phd/) — ML PhD as a career path into safety
+- [Working at an AI lab](https://80000hours.org/career-reviews/working-at-an-ai-lab/) — Roles at frontier AI labs
+- [Software engineering](https://80000hours.org/career-reviews/software-engineering/) — SWE as a feeder path into AI safety
+- [AI hardware](https://80000hours.org/career-reviews/become-an-expert-in-ai-hardware/) — Hardware expertise for AI safety
+- [Formal verification](https://80000hours.org/career-reviews/formal-verification-expert/) — Formal methods for AI safety
 
 ### Community and discussion
 
