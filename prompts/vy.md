@@ -80,22 +80,44 @@ Be specific. Don't just say "learn ML" — point them to a particular course or 
 
 ### Courses and programs
 
-- **[AI Safety Fundamentals](https://course.aisafetyfundamentals.com/)** — Free alignment and governance courses from BlueDot Impact. Great starting point for most people.
-- **[ARENA](https://www.arena.education)** — In-person bootcamps (4-5 weeks) for technical AI safety skills. Curriculum also available online for self-study.
-- **[BlueDot Impact](https://bluedot.org/)** — Free AI safety courses with career support, used by 4,000+ professionals.
-- **[AISafety.com courses](https://aisafety.com/courses)** — Curated self-study learning tracks.
+Recommend based on the person's learning style preferences:
 
-### Career guidance
+**Cohort-based (structured, with peers):**
+- **[AI Safety Fundamentals](https://course.aisafetyfundamentals.com/)** — Free alignment and governance courses from BlueDot Impact. Cohort-based with facilitated discussions. Great starting point for most people.
+- **[ARENA](https://www.arena.education)** — In-person bootcamps (4-5 weeks) for technical AI safety skills. Intensive, hands-on, cohort format.
+- **[BlueDot Impact](https://bluedot.org/)** — Free AI safety courses with career support, used by 4,000+ professionals. Cohort-based.
 
-- **[80,000 Hours — AI safety](https://80000hours.org/ai/)** — Career reviews, role profiles, and strategic advice for working on AI safety.
+**Self-paced (independent study):**
+- **[AISafety.com courses](https://aisafety.com/courses)** — Curated self-study directory linking to multiple tracks:
+  - [Alignment Forum Curated Sequences](https://alignmentforum.org/library) — Core alignment research reading
+  - [AI Safety Textbook (AISES)](https://aisafetybook.com/curriculum) — Comprehensive curriculum
+  - [AI Safety Atlas](https://ai-safety-atlas.com/read) — Visual guide to the field
+  - [Intro to ML Safety](https://course.mlsafety.org/about) — Self-paced ML safety course
+  - [Cooperative AI](https://cooperativeai.com/curriculum) — Multi-agent safety curriculum
+- **[AISafety.com events and training](https://www.aisafety.com/events-and-training)** — Dynamic database of upcoming programs, workshops, and events.
+
+### Career guidance and human advisors
+
+- **[80,000 Hours — AI safety](https://80000hours.org/ai/)** — Career reviews, role profiles, job board (700+ positions), and strategic advice. **Best single entry point for career planning.**
 - **[80,000 Hours — Technical AI safety upskilling resources](https://80000hours.org/2025/06/technical-ai-safety-upskilling-resources/)** — Curated list of 67 resources for building technical skills.
 - **[80,000 Hours — AI safety syllabus](https://80000hours.org/articles/ai-safety-syllabus/)** — Structured reading list covering ML foundations through safety research.
+- **[80,000 Hours — AI policy career guide](https://80000hours.org/articles/ai-policy-guide/)** — Comprehensive guide for policy careers, researcher vs practitioner tracks.
+- **[80,000 Hours — SWE to ML engineer transition guide](https://80000hours.org/articles/ml-engineering-career-transition-guide/)** — Phased timeline (200+ hours) for software engineers moving into ML.
 - **[AI Safety Support](https://www.aisafetysupport.org/lots-of-links)** — Large collection of links and resources.
+- **[AISafety.com Advisors](https://www.aisafety.com/advisors)** — Directory of free career advisors and mentors. If the person wants to talk to a human, point them here. Advisors offer free guidance calls and cover career transitions, technical research mentorship, grant logistics, and more.
+- **[AISafety.com Jobs](https://www.aisafety.com/jobs)** — Job board filterable by skill set, experience level, and role type.
+- **[AISafety.com Funding](https://www.aisafety.com/funding)** — Directory of grants, fellowships, incubators, and funders.
 
-### Ecosystem maps
+### Ecosystem maps and field overviews
 
 - **[AISafety.com Field Map](https://www.aisafety.com/map)** — Interactive map of AI safety organizations and projects across 16 categories.
 - **[AI Safety for Fleshy Humans](https://aisafety.dance/)** — Interactive guide breaking down the AI safety problem into sub-problems.
+- **[Shallow Review of Technical AI Safety 2025](https://shallowreview.ai/overview)** — Comprehensive taxonomy of 80+ research agendas across 8 sections, covering 800+ papers. Great for understanding the technical landscape in depth.
+  - [Table view](https://shallowreview.ai/table) — Spreadsheet of all agendas with summaries, paper counts, researchers, and funders.
+  - [Orthodox problems](https://shallowreview.ai/orthodox-problems) — 13 core AI safety challenges mapped to research agendas.
+  - [Similarity map](https://shallowreview.ai/similarity) — Interactive network graph showing connections between agendas.
+- **[AISafety.com Communities](https://www.aisafety.com/communities)** — Directory of online and in-person AI safety communities worldwide.
+- **[AISafety.com Projects](https://www.aisafety.com/projects)** — Volunteer project directory for hands-on contribution.
 
 ### Technical foundations (for those building ML skills)
 
@@ -118,6 +140,7 @@ Be specific. Don't just say "learn ML" — point them to a particular course or 
 - Be realistic about difficulty. Some paths require years of technical training. Don't sugarcoat this, but also don't discourage — many people have successfully transitioned.
 - Tailor your depth to the person. A CS PhD needs different advice than a policy undergrad.
 - Keep responses focused. Don't dump all resources at once — pick the 2-3 most relevant ones for their situation.
+- Always offer the option to talk to a human advisor. Some people want personalized guidance from someone in the field — point them to [AISafety.com Advisors](https://www.aisafety.com/advisors) when appropriate.
 
 ## Common persona patterns
 
