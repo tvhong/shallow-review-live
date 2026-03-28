@@ -266,7 +266,13 @@
   <div class="slide" id="slide-4">
     <h3>Demo</h3>
     <h2>Chat</h2>
-    <p style="max-width: 700px; margin-bottom: 1.5rem;">&darr; Live demo &darr;</p>
+    <div style="display: flex; align-items: center; gap: 2rem; margin-top: 1rem;">
+      <img src="discord_qr.png" alt="Discord QR code" style="width: 180px; height: 180px; border-radius: 8px;">
+      <div>
+        <a class="link-pill" style="margin-top: 0;" href="https://discord.gg/gXC6z5SP" target="_blank">discord.gg/gXC6z5SP</a>
+        <p style="margin-top: 1.5rem;">&darr; Live demo &darr;</p>
+      </div>
+    </div>
   </div>
 
   <!-- SLIDE 5: The Prompt -->
@@ -302,31 +308,55 @@
   <div class="slide" id="slide-6">
     <h3>Iteration</h3>
     <h2>Continuous Improvement</h2>
-    <p style="max-width: 700px; margin-bottom: 1.5rem;">Starting with evals against diverse personas <span class="dim" style="font-size: 1.1rem;">(ML engineer, SWE, policy grad, ops pro, ...)</span> while we build up real user data. Over time, user interactions feed back into the loop.</p>
-    <div class="eval-flow">
-      <div class="eval-step">
-        <div class="step-num">1</div>
-        <div class="step-label">Define<br>personas</div>
+    <p style="max-width: 700px; margin-bottom: 1.5rem;">Two feedback loops that both converge on improving the prompt.</p>
+
+    <div style="margin-bottom: 1.25rem;">
+      <p style="font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem;">Eval-driven <span style="font-weight: 400; color: var(--muted); font-size: 0.9rem;">(starting point)</span></p>
+      <div class="eval-flow">
+        <div class="eval-step">
+          <div class="step-label">Define<br>personas</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Run<br>eval</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Score<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--muted);">human + LLM</span></div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step" style="border-color: var(--accent);">
+          <div class="step-label">Update<br>prompt</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Re-run<br>&amp; compare</div>
+        </div>
       </div>
-      <div class="eval-arrow">&rarr;</div>
-      <div class="eval-step">
-        <div class="step-num">2</div>
-        <div class="step-label">Run<br>eval</div>
-      </div>
-      <div class="eval-arrow">&rarr;</div>
-      <div class="eval-step">
-        <div class="step-num">3</div>
-        <div class="step-label">Score<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--muted);">human + LLM</span></div>
-      </div>
-      <div class="eval-arrow">&rarr;</div>
-      <div class="eval-step">
-        <div class="step-num">4</div>
-        <div class="step-label">Update<br>prompt</div>
-      </div>
-      <div class="eval-arrow">&rarr;</div>
-      <div class="eval-step">
-        <div class="step-num">5</div>
-        <div class="step-label">Re-run<br>&amp; compare</div>
+    </div>
+
+    <div>
+      <p style="font-size: 1rem; font-weight: 600; color: var(--green); margin-bottom: 0.5rem;">User feedback <span style="font-weight: 400; color: var(--muted); font-size: 0.9rem;">(as we scale)</span></p>
+      <div class="eval-flow">
+        <div class="eval-step">
+          <div class="step-label">User<br>chats</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Collect<br>feedback</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Score<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--muted);">human + LLM</span></div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step" style="border-color: var(--green);">
+          <div class="step-label">Update<br>prompt</div>
+        </div>
+        <div class="eval-arrow">&rarr;</div>
+        <div class="eval-step">
+          <div class="step-label">Re-run<br>&amp; compare</div>
+        </div>
       </div>
     </div>
   </div>
@@ -339,6 +369,10 @@
       <div>
         <p style="color: var(--text); font-weight: 600; margin-bottom: 0.25rem;">Prompt &amp; Evals</p>
         <a class="link-pill" style="margin-top: 0;" href="https://github.com/tvhong/shallow-review-live" target="_blank">github.com/tvhong/shallow-review-live</a>
+      </div>
+      <div>
+        <p style="color: var(--text); font-weight: 600; margin-bottom: 0.25rem;">Eval Results</p>
+        <a class="link-pill" style="margin-top: 0;" href="https://tvhong.github.io/shallow-review-live/evals" target="_blank">tvhong.github.io/shallow-review-live/evals</a>
       </div>
       <div>
         <p style="color: var(--text); font-weight: 600; margin-bottom: 0.25rem;">Discord / Slack Bot</p>
