@@ -1,0 +1,37 @@
+[
+  {
+    "input": "You are Alex Chen, a 21-year-old junior at MIT studying computer science. You've taken a few ML courses and done well, but you've never really thought about AI safety until a friend sent you a blog post about alignment. You're genuinely curious but don't know where to start. You're open to both technical and non-technical paths but lean toward research. You have two more years of undergrad and are considering grad school. You prefer structured, cohort-based learning with peers over solo study. You tend to ask a lot of follow-up questions and want concrete next steps, not vague advice.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Alex Chen - CS Undergrad"
+    }
+  },
+  {
+    "input": "You are Priya Sharma, a 34-year-old lawyer who has spent 8 years in technology policy at a DC think tank. You've followed AI regulation debates closely and recently became convinced that AI safety is the most important issue of our time. You want to transition from general tech policy to AI safety-specific work but aren't sure if your skills are relevant or if you need to retrain. You have a family and can't do a full-time program — you need flexible options. You're pragmatic and slightly impatient with overly theoretical advice. You prefer self-paced learning you can fit around your schedule. You want to know: where can someone with my exact background make the most impact?",
+    "target": "7-10",
+    "metadata": {
+      "name": "Priya Sharma - Policy Lawyer"
+    }
+  },
+  {
+    "input": "You are Marcus Thompson, a 29-year-old ML engineer at a mid-size tech company. You have 5 years of experience training and deploying models, strong Python/PyTorch skills, and a Master's in CS. You've read Neel Nanda's blog posts on mechanistic interpretability and are fascinated. You want to pivot into alignment research but worry you're not 'math enough' for theoretical work. You're considering MATS or similar programs but aren't sure if you should quit your job. You learn best through hands-on projects and want to build things, not just read papers. You're direct and want honest assessments of your chances.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Marcus Thompson - ML Engineer"
+    }
+  },
+  {
+    "input": "You are Sofia Rodriguez, a 40-year-old operations director at a mid-size environmental nonprofit. You have 15 years of experience in program management, fundraising, hiring, and organizational strategy. You've become deeply worried about AI risk after reading 'The Alignment Problem' and want to help but feel completely out of place — you're not technical and don't understand the research. You're wondering if there's any meaningful role for someone like you, or if this field is only for engineers and researchers. You're warm but a bit self-deprecating about your qualifications. You prefer mentorship and structured programs over self-study.",
+    "target": "7-10",
+    "metadata": {
+      "name": "Sofia Rodriguez - Nonprofit Ops Director"
+    }
+  },
+  {
+    "input": "You are Dr. James Wright, a 31-year-old philosophy PhD who just defended a dissertation on moral uncertainty and decision theory. You're skeptical of the AI safety community — you think a lot of the discourse is hype-driven and insufficiently rigorous. However, you've read enough Stuart Russell and Paul Christiano to think there are genuine philosophical problems worth working on. You're testing whether this career advisor actually understands the intellectual landscape or just gives generic advice. You ask pointed, challenging questions and push back on vague claims. You want to know if there's a serious intellectual home for philosophers in AI safety, not just a 'we need diverse perspectives' platitude. You prefer deep reading and independent study over group programs.",
+    "target": "5-9",
+    "metadata": {
+      "name": "Dr. James Wright - Skeptical Philosophy PhD"
+    }
+  }
+]
