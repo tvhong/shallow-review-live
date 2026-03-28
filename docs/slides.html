@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Safety Career Advisor — Hackathon Deck</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent2: #818cf8;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* Slide container */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 6rem;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .slide.active { display: flex; }
+
+  /* Typography */
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  p, li {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .highlight { color: var(--accent); font-weight: 600; }
+  .highlight2 { color: var(--accent2); font-weight: 600; }
+  .highlight-green { color: var(--green); font-weight: 600; }
+  .highlight-orange { color: var(--orange); font-weight: 600; }
+
+  /* Two-column layout */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Prompt structure box */
+  .prompt-structure {
+    background: var(--surface);
+    border: 1px solid #334155;
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  .prompt-structure .section-label {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .prompt-structure .indent {
+    padding-left: 1.5rem;
+    color: var(--muted);
+  }
+  .prompt-structure .dim { color: #475569; }
+
+  /* Link pill */
+  .link-pill {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.5rem 1.25rem;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    transition: background 0.2s;
+  }
+  .link-pill:hover { background: #334155; }
+
+  /* Eval flow */
+  .eval-flow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .eval-step {
+    background: var(--surface);
+    border: 1px solid #334155;
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }
+  .eval-step .step-num {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+  .eval-step .step-label {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .eval-arrow {
+    font-size: 1.5rem;
+    color: #475569;
+  }
+
+  /* Big stat */
+  .stat {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+  }
+  .nav button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid #334155;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .nav button:hover { background: #334155; color: var(--text); }
+
+  .slide-counter {
+    position: fixed;
+    bottom: 1.75rem;
+    left: 2rem;
+    color: #475569;
+    font-size: 0.9rem;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    z-index: 100;
+  }
+
+  @media (max-width: 900px) {
+    .slide { padding: 2rem 2.5rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p, li { font-size: 1.1rem; }
+    .columns { grid-template-columns: 1fr; gap: 1.5rem; }
+    .prompt-structure { font-size: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active" id="slide-1">
+    <h3>Hackathon Project</h3>
+    <h1>AI Safety Career Advisor</h1>
+    <p style="max-width: 700px;">An AI-powered career advisor that gives <span class="highlight">personalized, actionable guidance</span> to people entering AI safety &mdash; built with curated resources and eval-driven prompt engineering.</p>
+  </div>
+
+  <!-- SLIDE 2: Problem -->
+  <div class="slide" id="slide-2">
+    <h3>The Problem</h3>
+    <h2>AI safety needs people. But getting started is overwhelming.</h2>
+    <ul style="margin-top: 1rem; max-width: 800px;">
+      <li><span class="highlight">Dozens</span> of courses, fellowships, orgs, and career paths &mdash; no clear map</li>
+      <li>Generic advice doesn't work: an ML engineer needs a <span class="highlight">completely different</span> roadmap than a policy grad</li>
+      <li>People get stuck at "I'm interested" and never reach <span class="highlight">"here's my next step"</span></li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 3: Solution — Discord/Slack chatbot -->
+  <div class="slide" id="slide-3">
+    <h3>Our Approach</h3>
+    <h2>A Discord / Slack chatbot for AI safety career advice</h2>
+    <ul style="margin-top: 1rem; max-width: 800px;">
+      <li><span class="highlight">Chatbot</span> &mdash; available 24/7 on Discord, gives personalized guidance in a conversation</li>
+      <li><span class="highlight">Intake form</span> &mdash; structured data collection up front, no slow back-and-forth</li>
+      <li><span class="highlight">Curated prompt</span> &mdash; 40+ vetted resources, research fellowships, career roadmaps</li>
+      <li><span class="highlight">Eval-driven</span> &mdash; test with personas, measure quality, iterate</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 4: Demo 1 — Discord -->
+  <div class="slide" id="slide-4">
+    <h3>Demo 1</h3>
+    <h2>Intake Form &rarr; Discord Chat</h2>
+    <p style="max-width: 700px; margin-bottom: 1.5rem;">User fills out the form, copies structured prompt, pastes into Discord. The advisor skips Q&A and jumps straight to tailored recommendations.</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a class="link-pill" href="https://tvhong.github.io/shallow-review-live/" target="_blank">tvhong.github.io/shallow-review-live</a>
+    </div>
+    <p style="margin-top: 2rem; color: #475569; font-size: 1.1rem; font-style: italic;">&darr; Live demo &darr;</p>
+  </div>
+
+  <!-- SLIDE 5: The Prompt -->
+  <div class="slide" id="slide-5">
+    <h3>Under the Hood</h3>
+    <div class="columns">
+      <div>
+        <h2>The prompt that powers it</h2>
+        <p style="margin-bottom: 1rem;">A single carefully structured document with step-by-step advisor behavior, 40+ curated resources, and persona-specific patterns.</p>
+        <a class="link-pill" href="https://github.com/tvhong/shallow-review-live/blob/main/prompts/vy.md" target="_blank">github.com/.../prompts/vy.md</a>
+      </div>
+      <div class="prompt-structure">
+        <div class="section-label">## Your approach</div>
+        <div class="indent">Step 1: Understand the person</div>
+        <div class="indent">Step 2: Orient to the field</div>
+        <div class="indent">Step 3: Explore contribution areas</div>
+        <div class="indent">Step 4: Suggest a concrete roadmap</div>
+        <div class="indent">Step 5: Technical deep dive</div>
+        <br>
+        <div class="section-label">## Key resources</div>
+        <div class="indent">Core 80K Hours pages</div>
+        <div class="indent">Courses &amp; programs</div>
+        <div class="indent">Research fellowships <span class="dim">(MATS, SPAR, ...)</span></div>
+        <div class="indent">Career guidance &amp; human advisors</div>
+        <div class="indent">Funding for transitions</div>
+        <div class="indent">Research organizations</div>
+        <br>
+        <div class="section-label">## Persona patterns</div>
+        <div class="indent dim">ML engineer, policy grad, ops pro, ...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Demo 2 — Eval loop -->
+  <div class="slide" id="slide-6">
+    <h3>Demo 2</h3>
+    <h2>Eval-Driven Prompt Improvement</h2>
+    <p style="max-width: 700px; margin-bottom: 1.5rem;">We test the advisor against diverse personas, score responses automatically, identify failures, and iterate on the prompt.</p>
+    <div class="eval-flow">
+      <div class="eval-step">
+        <div class="step-num">1</div>
+        <div class="step-label">Define<br>personas</div>
+      </div>
+      <div class="eval-arrow">&rarr;</div>
+      <div class="eval-step">
+        <div class="step-num">2</div>
+        <div class="step-label">Run<br>eval</div>
+      </div>
+      <div class="eval-arrow">&rarr;</div>
+      <div class="eval-step">
+        <div class="step-num">3</div>
+        <div class="step-label">Spot<br>failures</div>
+      </div>
+      <div class="eval-arrow">&rarr;</div>
+      <div class="eval-step">
+        <div class="step-num">4</div>
+        <div class="step-label">Update<br>prompt</div>
+      </div>
+      <div class="eval-arrow">&rarr;</div>
+      <div class="eval-step">
+        <div class="step-num">5</div>
+        <div class="step-label">Re-run<br>&amp; compare</div>
+      </div>
+    </div>
+    <p style="margin-top: 2rem; color: #475569; font-size: 1.1rem; font-style: italic;">&darr; Live demo &darr;</p>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="slide-counter"><span id="current">1</span> / <span id="total">6</span></div>
+<div class="nav">
+  <button id="prev-btn" aria-label="Previous slide">&larr;</button>
+  <button id="next-btn" aria-label="Next slide">&rarr;</button>
+</div>
+
+<script>
+(function () {
+  var slides = document.querySelectorAll('.slide');
+  var current = 0;
+  var total = slides.length;
+
+  function show(n) {
+    slides[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    document.getElementById('current').textContent = current + 1;
+  }
+
+  document.getElementById('prev-btn').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('next-btn').addEventListener('click', function () { show(current + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); show(current - 1); }
+  });
+})();
+</script>
+</body>
+</html>
