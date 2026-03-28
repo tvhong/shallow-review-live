@@ -1,0 +1,118 @@
+{
+  "2026-03-28T17-14-31-00-00_advisor-eval_mPphjUeQj49hS2HkNVHvXx.eval": {
+    "eval_id": "2XraG2qDhWCQFQjBuy8xLn",
+    "run_id": "gt9KvCnNA5oAx4wjihMnEF",
+    "task": "advisor_eval",
+    "task_id": "mPphjUeQj49hS2HkNVHvXx",
+    "task_version": 0,
+    "version": 2,
+    "status": "success",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T17:14:31+00:00",
+    "completed_at": "2026-03-28T17:21:59+00:00",
+    "primary_metric": {
+      "name": "mean",
+      "value": 7.888888888888889,
+      "params": {}
+    }
+  },
+  "2026-03-28T17-14-22-00-00_advisor-eval_4sUzdGwxKeFDRFZGeLJDeM.eval": {
+    "eval_id": "ivtSzDkzAuwyC3qg69EmNf",
+    "run_id": "j8tss7ULBB2RwzTABHaQ3L",
+    "task": "advisor_eval",
+    "task_id": "4sUzdGwxKeFDRFZGeLJDeM",
+    "task_version": 0,
+    "version": 2,
+    "status": "cancelled",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T17:14:22+00:00",
+    "completed_at": "2026-03-28T17:14:26+00:00"
+  },
+  "2026-03-28T17-13-14-00-00_advisor-eval_97ZPGT3Nut6g7h6GuYM6Ja.eval": {
+    "eval_id": "EeDxU8fhmaUighqMZFALKs",
+    "run_id": "hnr2hEC46P7jvUBCJTKJEH",
+    "task": "advisor_eval",
+    "task_id": "97ZPGT3Nut6g7h6GuYM6Ja",
+    "task_version": 0,
+    "version": 2,
+    "status": "cancelled",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T17:13:14+00:00",
+    "completed_at": "2026-03-28T17:13:18+00:00"
+  },
+  "2026-03-28T16-14-37-00-00_advisor-eval_aNCyBVaRykSDYK9BSLvPoK.eval": {
+    "eval_id": "J2B9xo4AbWSUhgeD84vgXd",
+    "run_id": "fWwaiNEitNu3fspRCuDmzq",
+    "task": "advisor_eval",
+    "task_id": "aNCyBVaRykSDYK9BSLvPoK",
+    "task_version": 0,
+    "version": 2,
+    "status": "success",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T16:14:37+00:00",
+    "completed_at": "2026-03-28T16:21:43+00:00",
+    "primary_metric": {
+      "name": "mean",
+      "value": 8.125,
+      "params": {}
+    }
+  },
+  "2026-03-28T16-06-27-00-00_advisor-eval_6muQcLAw9KiwztRXP3FeM6.eval": {
+    "eval_id": "7FVE4USQTwx9xWd3GUHrC9",
+    "run_id": "UooguDuYp7KRwP46euHZTq",
+    "task": "advisor_eval",
+    "task_id": "6muQcLAw9KiwztRXP3FeM6",
+    "task_version": 0,
+    "version": 2,
+    "status": "success",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T16:06:27+00:00",
+    "completed_at": "2026-03-28T16:14:08+00:00",
+    "primary_metric": {
+      "name": "mean",
+      "value": 8.0,
+      "params": {}
+    }
+  },
+  "2026-03-28T16-02-13-00-00_advisor-eval_Sbozq7aVdpUUmQEDvqbJHW.eval": {
+    "eval_id": "atVSbRavZH4gSmgmGshF55",
+    "run_id": "59jVrFYuSEb9k9i8dU76xe",
+    "task": "advisor_eval",
+    "task_id": "Sbozq7aVdpUUmQEDvqbJHW",
+    "task_version": 0,
+    "version": 2,
+    "status": "success",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T16:02:13+00:00",
+    "completed_at": "2026-03-28T16:09:07+00:00",
+    "primary_metric": {
+      "name": "mean",
+      "value": 8.5,
+      "params": {}
+    }
+  },
+  "2026-03-28T15-48-39-00-00_vy-advisor-eval_m5nGrb4LmrmefotssVMqqN.eval": {
+    "eval_id": "APMn4votQHehPbuTPi9vzJ",
+    "run_id": "nUnPjFNsDEdmFPucGmpbrw",
+    "task": "vy_advisor_eval",
+    "task_id": "m5nGrb4LmrmefotssVMqqN",
+    "task_version": 0,
+    "version": 2,
+    "status": "success",
+    "invalidated": false,
+    "model": "anthropic/claude-sonnet-4-6",
+    "started_at": "2026-03-28T15:48:40+00:00",
+    "completed_at": "2026-03-28T15:53:50+00:00",
+    "primary_metric": {
+      "name": "mean",
+      "value": 10.0,
+      "params": {}
+    }
+  }
+}
